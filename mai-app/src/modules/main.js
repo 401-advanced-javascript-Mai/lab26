@@ -1,51 +1,52 @@
 import React from 'react'
 
-class Main extends React.Component{
-    constructor(props){
+class Main extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            number:0
+            number: 0
         }
     }
 
-decrementClicker = e =>{
-    e.preventDefault();
-    let number = this.state.number -1 ;
-    
-    this.updateNumber(number);
-}
+    decrementClicker = e => {
+        e.preventDefault();
+        let number = this.state.number - 1;
 
-incrementClicer = e =>{
-    e.preventDefault();
-    let number = this.state.number +1 ;
-    this.updateNumber(number)
-
-}
-updateNumber(number) {
-    let polarity = '';
-    if (number > 0) {
-      polarity = 'positive';
-    } else if (number < 0) {
-      polarity = 'negative';
+        this.updateNumberAnddeterminPolarity(number);
     }
-    this.setState({ number, polarity });
-  }
 
-render(){
-    return(
-        <div>
-            <section>
-            <h3>the number is : {this.state.number} </h3>
-            <h3> polarity : {this.state.polarity}</h3>
-            <button onClick={this.incrementClicer}>Click Me To Increase</button>
-           <button onClick= {this.decrementClicker}>Click Me To decrease</button>
+    incrementClicer = e => {
+        e.preventDefault();
+        let number = this.state.number + 1;
+        this.updateNumberAnddeterminPolarity(number)
 
-          </section>
+    }
+    updateNumberAnddeterminPolarity (number) {
+        let polarity = '';
+        if (number > 0) {
+            polarity = 'positive';
+        } else if (number < 0) {
+            polarity = 'negative';
+        }
+        this.setState({ number, polarity });
+    }
+
+    render() {
+        return (
+            <div>
+                <h3>the number is : {this.state.number} </h3>
+                <h3> polarity : {this.state.polarity}</h3>
+                <section>
+                    <button onClick={this.incrementClicer}>Click Me To Increase</button>
+                </section>
+                <section>
+                <button onClick={this.decrementClicker}>Click Me To decrease</button>
+                </section>
 
 
-        </div>
-    )
-}
+            </div>
+        )
+    }
 
 }
 export default Main
