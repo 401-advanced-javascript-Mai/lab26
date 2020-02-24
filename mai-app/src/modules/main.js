@@ -1,4 +1,5 @@
 import React from 'react'
+
 class Main extends React.Component{
     constructor(props){
         super(props);
@@ -11,13 +12,13 @@ decrementClicker = e =>{
     e.preventDefault();
     let number = this.state.number -1 ;
     
-    this.setState({number});
+    this.updateNumber(number);
 }
 
 incrementClicer = e =>{
     e.preventDefault();
     let number = this.state.number +1 ;
-    this.setState({number })
+    this.updateNumber(number)
 
 }
 updateNumber(number) {
@@ -37,11 +38,6 @@ render(){
             <h3>the number is : {this.state.number} </h3>
             <h3> polarity : {this.state.polarity}</h3>
             <button onClick={this.incrementClicer}>Click Me To Increase</button>
-            </section>
-
-          <section>
-              <h3> this.number is : {this.state.number } </h3>
-              <h3> polarity : {this.state.polarity}</h3>
            <button onClick= {this.decrementClicker}>Click Me To decrease</button>
 
           </section>
